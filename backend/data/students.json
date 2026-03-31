@@ -1,0 +1,122 @@
+[
+  {
+    "id": "STU0001",
+    "name": "Alice Johnson",
+    "email": "alice.johnson@school.edu",
+    "studytime": 3,
+    "failures": 0,
+    "absences": 2,
+    "G1": 14,
+    "G2": 15,
+    "created_at": "2026-03-31T19:26:47.533347",
+    "updated_at": "2026-03-31T19:26:47.533347"
+  },
+  {
+    "id": "STU0002",
+    "name": "Bob Smith",
+    "email": "bob.smith@school.edu",
+    "studytime": 2,
+    "failures": 1,
+    "absences": 8,
+    "G1": 10,
+    "G2": 9,
+    "created_at": "2026-03-31T19:26:47.533347",
+    "updated_at": "2026-03-31T19:26:47.533347"
+  },
+  {
+    "id": "STU0003",
+    "name": "Charlie Brown",
+    "email": "charlie.brown@school.edu",
+    "studytime": 1,
+    "failures": 2,
+    "absences": 15,
+    "G1": 7,
+    "G2": 6,
+    "created_at": "2026-03-31T19:26:47.533347",
+    "updated_at": "2026-03-31T19:26:47.533347"
+  },
+  {
+    "id": "STU0004",
+    "name": "Diana Lee",
+    "email": "diana.lee@school.edu",
+    "studytime": 4,
+    "failures": 0,
+    "absences": 1,
+    "G1": 16,
+    "G2": 17,
+    "created_at": "2026-03-31T19:26:47.533347",
+    "updated_at": "2026-03-31T19:26:47.533347"
+  },
+  {
+    "id": "STU0005",
+    "name": "Edward Davis",
+    "email": "edward.davis@school.edu",
+    "studytime": 2,
+    "failures": 0,
+    "absences": 5,
+    "G1": 12,
+    "G2": 13,
+    "created_at": "2026-03-31T19:26:47.533347",
+    "updated_at": "2026-03-31T19:26:47.533347"
+  },
+  {
+    "id": "STU0006",
+    "name": "Fiona Garcia",
+    "email": "fiona.garcia@school.edu",
+    "studytime": 1,
+    "failures": 3,
+    "absences": 20,
+    "G1": 5,
+    "G2": 4,
+    "created_at": "2026-03-31T19:26:47.533347",
+    "updated_at": "2026-03-31T19:26:47.533347"
+  },
+  {
+    "id": "STU0007",
+    "name": "George Wilson",
+    "email": "george.wilson@school.edu",
+    "studytime": 3,
+    "failures": 0,
+    "absences": 3,
+    "G1": 13,
+    "G2": 14,
+    "created_at": "2026-03-31T19:26:47.533347",
+    "updated_at": "2026-03-31T19:26:47.533347"
+  },
+  {
+    "id": "STU0008",
+    "name": "Hannah Martinez",
+    "email": "hannah.martinez@school.edu",
+    "studytime": 2,
+    "failures": 1,
+    "absences": 10,
+    "G1": 9,
+    "G2": 8,
+    "created_at": "2026-03-31T19:26:47.533347",
+    "updated_at": "2026-03-31T19:26:47.533347"
+  },
+  {
+    "id": "STU0009",
+    "name": "Ivan Taylor",
+    "email": "ivan.taylor@school.edu",
+    "studytime": 4,
+    "failures": 0,
+    "absences": 0,
+    "G1": 18,
+    "G2": 19,
+    "created_at": "2026-03-31T19:26:47.533347",
+    "updated_at": "2026-03-31T19:26:47.533347"
+  },
+  {
+    "id": "STU0010",
+    "name": "Julia Anderson",
+    "email": "julia.anderson@school.edu",
+    "studytime": 2,
+    "failures": 0,
+    "absences": 6,
+    "G1": 11,
+    "G2": 12,
+    "created_at": "2026-03-31T19:26:47.533347",
+    "updated_at": "2026-03-31T19:26:47.533347"
+  }
+]
