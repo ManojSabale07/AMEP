@@ -1,4 +1,6 @@
+# =========================
 # Logs
+# =========================
 logs
 *.log
 npm-debug.log*
@@ -7,18 +9,69 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# =========================
+# Node.js
+# =========================
+node_modules/
+dist/
+dist-ssr/
+build/
+coverage/
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.*
 *.local
 
-# Editor directories and files
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# =========================
+# VS Code & Editors
+# =========================
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
+
+# =========================
+# OS Files
+# =========================
+Thumbs.db
+desktop.ini
+
+# =========================
+# Misc
+# =========================
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+*.bak
+*.tmp
+
+# =========================
+# React / Vite
+# =========================
+.vite/
+.cache/
+
+# =========================
+# Clerk / Secrets
+# =========================
+.clerk/

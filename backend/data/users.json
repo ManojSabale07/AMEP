@@ -7,7 +7,18 @@
       "name": "Demo Teacher",
       "role": "teacher",
       "created_at": "2026-03-31T21:27:10.614422",
-      "last_login": null,
+      "last_login": "2026-03-31T21:42:52.342662",
+      "subject": "",
+      "students": []
+    },
+    {
+      "id": "teacher_2",
+      "email": "sonali.yesade@gmail.com",
+      "password": "2e79b76dc67db13088cd87f7ccabf08c334e60124cdd1fc5350c64bfd30d7f69",
+      "name": "Samiksha yesade",
+      "role": "teacher",
+      "created_at": "2026-03-31T21:48:17.633524",
+      "last_login": "2026-03-31T22:19:20.432066",
       "subject": "",
       "students": []
     }
@@ -20,12 +31,27 @@
       "name": "Demo Student",
       "role": "student",
       "created_at": "2026-03-31T21:27:10.601943",
-      "last_login": "2026-03-31T21:38:46.538073",
+      "last_login": "2026-03-31T22:21:16.755935",
       "studytime": 2,
       "failures": 0,
       "absences": 0,
       "G1": 0,
       "G2": 0,
+      "teacher_id": null
+    },
+    {
+      "id": "student_2",
+      "email": "samikshaa.y19@gmail.com",
+      "password": "2e79b76dc67db13088cd87f7ccabf08c334e60124cdd1fc5350c64bfd30d7f69",
+      "name": "Samiksha yesade",
+      "role": "student",
+      "created_at": "2026-03-31T21:47:38.190043",
+      "last_login": "2026-03-31T22:23:32.531065",
+      "studytime": 3,
+      "failures": 0,
+      "absences": 4,
+      "G1": 13,
+      "G2": 14,
       "teacher_id": null
     }
   ]

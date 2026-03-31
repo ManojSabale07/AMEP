@@ -1,114 +1,99 @@
-import axios from 'axios';
+/**
+ * AMEP API Service Layer v3.1
+ * Centralized all API calls with axios interceptors
+ */
+import axios from 'axios'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
-// Create axios instance
+// Axios instance with base URL
 const api = axios.create({
-  baseURL: API_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+  baseURL: API_BASE,
+  timeout: 15000,
+  headers: { 'Content-Type': 'application/json' }
+})
 
-// Add request interceptor to include auth token
+// Auth token injected on every request
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('amep_token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
+    const token = localStorage.getItem('amep_token')
+    if (token) config.headers.Authorization = `Bearer ${token}`
+    return config
   },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+  (error) => Promise.reject(error)
+)
 
-// Add response interceptor to handle errors
+// Auto-logout on 401
 api.interceptors.response.use(
-  (response) => response,
+  (response) => response.data,
   (error) => {
     if (error.response?.status === 401) {
-      // Token expired or invalid - redirect to login
-      localStorage.removeItem('amep_token');
-      localStorage.removeItem('amep_user');
-      localStorage.removeItem('amep_role');
-      window.location.href = '/login';
+      localStorage.removeItem('amep_token')
+      localStorage.removeItem('amep_user')
+      // Don't force redirect here — let AuthContext handle it
     }
-    return Promise.reject(error);
+    return Promise.reject(error)
   }
-);
+)
 
-// Auth API
-export const authAPI = {
-  register: (email, password, name, role) =>
-    axios.post(`${API_URL}/auth/register`, { email, password, name, role }),
-  
-  login: (email, password, role) =>
-    axios.post(`${API_URL}/auth/login`, { email, password, role }),
-  
-  logout: () =>
-    api.post('/auth/logout'),
-  
-  validate: () =>
-    api.get('/auth/validate'),
-  
-  getCurrentUser: () =>
-    api.get('/auth/me'),
-};
+// ============ Auth ============
+export const login = (email, password, role) =>
+  api.post('/auth/login', { email, password, role })
 
-// Prediction API
-export const predict = async (data) => {
-  const response = await api.post('/predict', data);
-  return response.data;
-};
+export const register = (email, password, name, role) =>
+  api.post('/auth/register', { email, password, name, role })
 
-// Student API  
-export const getStudentProfile = async () => {
-  const response = await api.get('/student/profile');
-  return response.data;
-};
+export const logout = () =>
+  api.post('/auth/logout')
 
-export const updateStudentProfile = async (data) => {
-  const response = await api.put('/student/profile', data);
-  return response.data;
-};
+export const validateToken = () =>
+  api.get('/auth/validate')
 
-export const getStudents = async () => {
-  const response = await api.get('/students');
-  return response.data;
-};
+export const getCurrentUser = () =>
+  api.get('/auth/me')
 
-export const getStudent = async (id) => {
-  const response = await api.get(`/students/${id}`);
-  return response.data;
-};
+export const refreshToken = () =>
+  api.post('/auth/refresh')
 
-export const addStudent = async (data) => {
-  const response = await api.post('/add-student', data);
-  return response.data;
-};
+// ============ Prediction ============
+export const predict = (data) =>
+  api.post('/predict', data)
 
-export const updateStudent = async (id, data) => {
-  const response = await api.put(`/students/${id}`, data);
-  return response.data;
-};
+export const predictMastery = (data) =>
+  api.post('/predict-mastery', data)
 
-export const deleteStudent = async (id) => {
-  const response = await api.delete(`/students/${id}`);
-  return response.data;
-};
+export const predictPerformance = (data) =>
+  api.post('/predict-performance', data)
 
-// Analytics API
-export const getClassAnalytics = async () => {
-  const response = await api.get('/class-analytics');
-  return response.data;
-};
+// ============ Students (Teacher) ============
+export const getStudents = () =>
+  api.get('/students')
 
-// Health check
-export const healthCheck = async () => {
-  const response = await axios.get(`${API_URL}/health`);
-  return response.data;
-};
+export const getStudent = (id) =>
+  api.get(`/students/${id}`)
 
-export default api;
+export const addStudent = (data) =>
+  api.post('/add-student', data)
+
+export const updateStudentAPI = (id, data) =>
+  api.put(`/students/${id}`, data)
+
+export const deleteStudent = (id) =>
+  api.delete(`/students/${id}`)
+
+// ============ Student Self-Profile ============
+export const getStudentProfile = () =>
+  api.get('/student/profile')
+
+export const updateStudentProfile = (data) =>
+  api.put('/student/profile', data)
+
+// ============ Analytics ============
+export const getClassAnalytics = () =>
+  api.get('/class-analytics')
+
+// ============ Health ============
+export const healthCheck = () =>
+  api.get('/health')
+
+export default api

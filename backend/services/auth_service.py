@@ -13,9 +13,41 @@ from pathlib import Path
 class AuthService:
     def __init__(self):
         self.users_file = Path(__file__).parent.parent / 'data' / 'users.json'
-        self.sessions = {}  # In-memory session storage {token: {user_id, role, expires}}
+        self.sessions_file = Path(__file__).parent.parent / 'data' / 'sessions.json'
+        self.sessions = {}  # {token: {user_id, role, expires (ISO string)}}
         self._ensure_users_file()
+        self._load_sessions_from_file()
         self.seed_demo_users()
+
+    def _load_sessions_from_file(self):
+        """Load persisted sessions from disk."""
+        if self.sessions_file.exists():
+            try:
+                with open(self.sessions_file, 'r') as f:
+                    raw = json.load(f)
+                now = datetime.now()
+                # Only keep non-expired sessions
+                self.sessions = {
+                    token: s for token, s in raw.items()
+                    if datetime.fromisoformat(s['expires']) > now
+                }
+                self._save_sessions_to_file()
+            except Exception:
+                self.sessions = {}
+
+    def _save_sessions_to_file(self):
+        """Persist sessions to disk."""
+        try:
+            self.sessions_file.parent.mkdir(parents=True, exist_ok=True)
+            serializable = {
+                token: {**s, 'expires': s['expires'].isoformat() if isinstance(s['expires'], datetime) else s['expires']}
+                for token, s in self.sessions.items()
+            }
+            with open(self.sessions_file, 'w') as f:
+                json.dump(serializable, f, indent=2)
+        except Exception:
+            pass  # Non-critical
+
 
     def seed_demo_users(self):
         """Seed demo accounts if they don't exist yet."""
@@ -236,6 +268,25 @@ class AuthService:
                 return {k: v for k, v in user.items() if k != 'password'}
         
         return None
+
+    def refresh_session(self, token: str) -> dict:
+        """Extend a valid session by 24 hours."""
+        if not token or token not in self.sessions:
+            return {'success': False, 'error': 'Invalid session'}
+
+        session = self.sessions[token]
+        current_expires = session['expires']
+        if isinstance(current_expires, str):
+            current_expires = datetime.fromisoformat(current_expires)
+
+        if datetime.now() > current_expires:
+            del self.sessions[token]
+            self._save_sessions_to_file()
+            return {'success': False, 'error': 'Session expired'}
+
+        self.sessions[token]['expires'] = datetime.now() + timedelta(hours=24)
+        self._save_sessions_to_file()
+        return {'success': True, 'message': 'Session refreshed', 'expires': self.sessions[token]['expires'].isoformat()}
     
     def update_user(self, user_id, role, updates):
         """Update user data."""

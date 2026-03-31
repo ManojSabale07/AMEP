@@ -1,0 +1,186 @@
+2026-03-31 22:00:36,984 [WARNING] services.prediction_service: Knowledge Tracing model not found - using fallback
+2026-03-31 22:00:36,984 [WARNING] services.prediction_service: Performance Prediction model not found - using fallback
+2026-03-31 22:00:36,987 [INFO] __main__: ==================================================
+2026-03-31 22:00:36,988 [INFO] __main__: Starting AMEP Backend Server v3.1
+2026-03-31 22:00:36,988 [INFO] __main__: Environment: development
+2026-03-31 22:00:36,988 [INFO] __main__: Models loaded: False
+2026-03-31 22:00:36,988 [INFO] __main__: Log file: D:\Hackathon\HACKVOIUM\AMEP\backend\logs\amep.log
+2026-03-31 22:00:36,988 [INFO] __main__: ==================================================
+2026-03-31 22:00:36,998 [WARNING] werkzeug:  * Debugger is active!
+2026-03-31 22:00:37,002 [INFO] werkzeug:  * Debugger PIN: 202-085-416
+2026-03-31 22:01:56,210 [INFO] werkzeug:  * Detected change in 'D:\\Hackathon\\HACKVOIUM\\AMEP\\backend\\services\\auth_service.py', reloading
+2026-03-31 22:01:56,788 [WARNING] services.prediction_service: Knowledge Tracing model not found - using fallback
+2026-03-31 22:01:56,788 [WARNING] services.prediction_service: Performance Prediction model not found - using fallback
+2026-03-31 22:01:56,793 [INFO] __main__: ==================================================
+2026-03-31 22:01:56,793 [INFO] __main__: Starting AMEP Backend Server v3.1
+2026-03-31 22:01:56,793 [INFO] __main__: Environment: development
+2026-03-31 22:01:56,793 [INFO] __main__: Models loaded: False
+2026-03-31 22:01:56,794 [INFO] __main__: Log file: D:\Hackathon\HACKVOIUM\AMEP\backend\logs\amep.log
+2026-03-31 22:01:56,794 [INFO] __main__: ==================================================
+2026-03-31 22:01:56,803 [WARNING] werkzeug:  * Debugger is active!
+2026-03-31 22:01:56,806 [INFO] werkzeug:  * Debugger PIN: 202-085-416
+2026-03-31 22:02:56,848 [INFO] werkzeug:  * Detected change in 'D:\\Hackathon\\HACKVOIUM\\AMEP\\backend\\services\\auth_service.py', reloading
+2026-03-31 22:02:57,385 [WARNING] services.prediction_service: Knowledge Tracing model not found - using fallback
+2026-03-31 22:02:57,386 [WARNING] services.prediction_service: Performance Prediction model not found - using fallback
+2026-03-31 22:02:57,389 [INFO] __main__: ==================================================
+2026-03-31 22:02:57,390 [INFO] __main__: Starting AMEP Backend Server v3.1
+2026-03-31 22:02:57,390 [INFO] __main__: Environment: development
+2026-03-31 22:02:57,390 [INFO] __main__: Models loaded: False
+2026-03-31 22:02:57,390 [INFO] __main__: Log file: D:\Hackathon\HACKVOIUM\AMEP\backend\logs\amep.log
+2026-03-31 22:02:57,390 [INFO] __main__: ==================================================
+2026-03-31 22:02:57,398 [WARNING] werkzeug:  * Debugger is active!
+2026-03-31 22:02:57,402 [INFO] werkzeug:  * Debugger PIN: 202-085-416
+2026-03-31 22:03:40,058 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:40] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:03:40,059 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:40] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:03:40,060 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:40] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:03:40,061 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:40] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:03:40,064 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:40] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:03:40,066 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:40] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:03:40,383 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:40] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:03:40,384 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:40] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:03:40,386 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:40] "[31m[1mGET /students HTTP/1.1[0m" 401 -
+2026-03-31 22:03:40,389 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:40] "[31m[1mGET /class-analytics HTTP/1.1[0m" 401 -
+2026-03-31 22:03:40,391 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:40] "[31m[1mGET /students HTTP/1.1[0m" 401 -
+2026-03-31 22:03:40,393 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:40] "[31m[1mGET /class-analytics HTTP/1.1[0m" 401 -
+2026-03-31 22:03:47,099 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:47] "OPTIONS /auth/login HTTP/1.1" 200 -
+2026-03-31 22:03:47,101 [INFO] __main__: Login attempt: samikshaa.y19@gmail.com as student
+2026-03-31 22:03:47,104 [INFO] __main__: Login successful: samikshaa.y19@gmail.com
+2026-03-31 22:03:47,105 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:47] "POST /auth/login HTTP/1.1" 200 -
+2026-03-31 22:03:57,776 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:57] "OPTIONS /predict HTTP/1.1" 200 -
+2026-03-31 22:03:57,791 [INFO] __main__: Prediction for user student_2: score=14.2
+2026-03-31 22:03:57,792 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:03:57] "POST /predict HTTP/1.1" 200 -
+2026-03-31 22:05:00,755 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:00] "OPTIONS /auth/login HTTP/1.1" 200 -
+2026-03-31 22:05:01,019 [INFO] __main__: Login attempt: sonali.yesade@gmail.com as teacher
+2026-03-31 22:05:01,022 [INFO] __main__: Login successful: sonali.yesade@gmail.com
+2026-03-31 22:05:01,024 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:01] "POST /auth/login HTTP/1.1" 200 -
+2026-03-31 22:05:01,064 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:01] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:05:01,360 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:01] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:05:01,360 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:01] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:05:01,362 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:01] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:05:01,375 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:01] "GET /students HTTP/1.1" 200 -
+2026-03-31 22:05:01,376 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:01] "GET /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:05:01,675 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:01] "GET /students HTTP/1.1" 200 -
+2026-03-31 22:05:01,679 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:01] "GET /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:05:50,307 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:05:50,619 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:05:50,620 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:05:50,622 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:05:50,624 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:05:50,626 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:05:50,628 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:05:50,630 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:05:50,639 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "GET /students HTTP/1.1" 200 -
+2026-03-31 22:05:50,883 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "[31m[1mGET /students HTTP/1.1[0m" 401 -
+2026-03-31 22:05:50,929 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "[31m[1mGET /class-analytics HTTP/1.1[0m" 401 -
+2026-03-31 22:05:50,934 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "[31m[1mGET /students HTTP/1.1[0m" 401 -
+2026-03-31 22:05:50,963 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "GET /students HTTP/1.1" 200 -
+2026-03-31 22:05:50,965 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:50] "GET /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:05:51,195 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:51] "[31m[1mGET /class-analytics HTTP/1.1[0m" 401 -
+2026-03-31 22:05:51,272 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:05:51] "GET /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:08:36,515 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:08:36] "[33mGET / HTTP/1.1[0m" 404 -
+2026-03-31 22:08:36,654 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:08:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-31 22:09:58,157 [WARNING] services.prediction_service: Knowledge Tracing model not found - using fallback
+2026-03-31 22:09:58,157 [WARNING] services.prediction_service: Performance Prediction model not found - using fallback
+2026-03-31 22:09:58,160 [INFO] __main__: ==================================================
+2026-03-31 22:09:58,160 [INFO] __main__: Starting AMEP Backend Server v3.1
+2026-03-31 22:09:58,161 [INFO] __main__: Environment: development
+2026-03-31 22:09:58,161 [INFO] __main__: Models loaded: False
+2026-03-31 22:09:58,162 [INFO] __main__: Log file: D:\Hackathon\HACKVOIUM\AMEP\backend\logs\amep.log
+2026-03-31 22:09:58,162 [INFO] __main__: ==================================================
+2026-03-31 22:09:58,201 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.1.6:8000
+2026-03-31 22:09:58,202 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2026-03-31 22:09:58,211 [INFO] werkzeug:  * Restarting with watchdog (windowsapi)
+2026-03-31 22:09:58,613 [WARNING] services.prediction_service: Knowledge Tracing model not found - using fallback
+2026-03-31 22:09:58,614 [WARNING] services.prediction_service: Performance Prediction model not found - using fallback
+2026-03-31 22:09:58,617 [INFO] __main__: ==================================================
+2026-03-31 22:09:58,617 [INFO] __main__: Starting AMEP Backend Server v3.1
+2026-03-31 22:09:58,618 [INFO] __main__: Environment: development
+2026-03-31 22:09:58,618 [INFO] __main__: Models loaded: False
+2026-03-31 22:09:58,618 [INFO] __main__: Log file: D:\Hackathon\HACKVOIUM\AMEP\backend\logs\amep.log
+2026-03-31 22:09:58,618 [INFO] __main__: ==================================================
+2026-03-31 22:09:58,627 [WARNING] werkzeug:  * Debugger is active!
+2026-03-31 22:09:58,631 [INFO] werkzeug:  * Debugger PIN: 202-085-416
+2026-03-31 22:13:09,293 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:13:09] "OPTIONS /auth/login HTTP/1.1" 200 -
+2026-03-31 22:13:09,551 [INFO] __main__: Login attempt: student@amep.com as student
+2026-03-31 22:13:09,558 [INFO] __main__: Login successful: student@amep.com
+2026-03-31 22:13:09,560 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:13:09] "POST /auth/login HTTP/1.1" 200 -
+2026-03-31 22:13:37,365 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:13:37] "OPTIONS /auth/login HTTP/1.1" 200 -
+2026-03-31 22:13:37,658 [INFO] __main__: Login attempt: samikshaa.y19@gmail.com as student
+2026-03-31 22:13:37,728 [INFO] __main__: Login successful: samikshaa.y19@gmail.com
+2026-03-31 22:13:37,763 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:13:37] "POST /auth/login HTTP/1.1" 200 -
+2026-03-31 22:14:42,508 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:14:42] "OPTIONS /auth/register HTTP/1.1" 200 -
+2026-03-31 22:14:42,839 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:14:42] "[31m[1mPOST /auth/register HTTP/1.1[0m" 400 -
+2026-03-31 22:14:55,687 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:14:55] "OPTIONS /auth/login HTTP/1.1" 200 -
+2026-03-31 22:14:56,013 [INFO] __main__: Login attempt: samikshaa.y19@gmail.com as student
+2026-03-31 22:14:56,041 [INFO] __main__: Login successful: samikshaa.y19@gmail.com
+2026-03-31 22:14:56,055 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:14:56] "POST /auth/login HTTP/1.1" 200 -
+2026-03-31 22:16:14,759 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:16:14] "[33mGET / HTTP/1.1[0m" 404 -
+2026-03-31 22:16:14,920 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:16:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-31 22:16:20,170 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:16:20] "GET /health HTTP/1.1" 200 -
+2026-03-31 22:16:28,093 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:16:28] "GET /health HTTP/1.1" 200 -
+2026-03-31 22:16:28,407 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:16:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-31 22:17:40,465 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:17:40] "OPTIONS /auth/login HTTP/1.1" 200 -
+2026-03-31 22:17:40,731 [INFO] __main__: Login attempt: samikshaa.y19@gmail.com as student
+2026-03-31 22:17:40,736 [INFO] __main__: Login successful: samikshaa.y19@gmail.com
+2026-03-31 22:17:40,738 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:17:40] "POST /auth/login HTTP/1.1" 200 -
+2026-03-31 22:17:55,400 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:17:55] "OPTIONS /student/profile HTTP/1.1" 200 -
+2026-03-31 22:17:55,773 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:17:55] "PUT /student/profile HTTP/1.1" 200 -
+2026-03-31 22:18:56,925 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:18:56] "OPTIONS /auth/validate HTTP/1.1" 200 -
+2026-03-31 22:18:56,939 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:18:56] "OPTIONS /auth/validate HTTP/1.1" 200 -
+2026-03-31 22:18:57,270 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:18:57] "GET /auth/validate HTTP/1.1" 200 -
+2026-03-31 22:18:57,303 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:18:57] "GET /auth/validate HTTP/1.1" 200 -
+2026-03-31 22:19:02,753 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:02] "OPTIONS /auth/validate HTTP/1.1" 200 -
+2026-03-31 22:19:02,758 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:02] "OPTIONS /auth/validate HTTP/1.1" 200 -
+2026-03-31 22:19:03,007 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:03] "GET /auth/validate HTTP/1.1" 200 -
+2026-03-31 22:19:03,096 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:03] "GET /auth/validate HTTP/1.1" 200 -
+2026-03-31 22:19:13,384 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:13] "OPTIONS /auth/login HTTP/1.1" 200 -
+2026-03-31 22:19:13,732 [INFO] __main__: Login attempt: samikshaa.y19@gmail.com as teacher
+2026-03-31 22:19:13,741 [WARNING] __main__: Login failed for samikshaa.y19@gmail.com: Invalid email or password
+2026-03-31 22:19:13,755 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:13] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2026-03-31 22:19:20,106 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:20] "OPTIONS /auth/login HTTP/1.1" 200 -
+2026-03-31 22:19:20,425 [INFO] __main__: Login attempt: sonali.yesade@gmail.com as teacher
+2026-03-31 22:19:20,435 [INFO] __main__: Login successful: sonali.yesade@gmail.com
+2026-03-31 22:19:20,440 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:20] "POST /auth/login HTTP/1.1" 200 -
+2026-03-31 22:19:20,700 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:20] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:19:20,891 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:20] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:19:20,898 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:20] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:19:20,909 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:20] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:19:39,219 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:39] "GET /students HTTP/1.1" 200 -
+2026-03-31 22:19:52,025 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:52] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:19:52,337 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:52] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:19:52,413 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:52] "GET /students HTTP/1.1" 200 -
+2026-03-31 22:19:52,671 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:19:52] "GET /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:20:01,141 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:01] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:20:01,224 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:01] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:20:01,252 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:01] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:20:01,284 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:01] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:20:01,424 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:01] "GET /students HTTP/1.1" 200 -
+2026-03-31 22:20:01,534 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:01] "GET /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:20:01,580 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:01] "GET /students HTTP/1.1" 200 -
+2026-03-31 22:20:01,765 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:01] "GET /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:20:03,632 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:03] "GET /students HTTP/1.1" 200 -
+2026-03-31 22:20:03,941 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:03] "GET /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:20:03,986 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:03] "GET /students HTTP/1.1" 200 -
+2026-03-31 22:20:04,284 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:04] "GET /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:20:07,694 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:07] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:20:07,697 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:07] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:20:07,702 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:07] "OPTIONS /students HTTP/1.1" 200 -
+2026-03-31 22:20:07,724 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:07] "OPTIONS /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:20:07,969 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:07] "GET /students HTTP/1.1" 200 -
+2026-03-31 22:20:08,046 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:08] "GET /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:20:08,075 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:08] "GET /students HTTP/1.1" 200 -
+2026-03-31 22:20:08,286 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:20:08] "GET /class-analytics HTTP/1.1" 200 -
+2026-03-31 22:21:16,491 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:21:16] "OPTIONS /auth/login HTTP/1.1" 200 -
+2026-03-31 22:21:16,753 [INFO] __main__: Login attempt: student@amep.com as student
+2026-03-31 22:21:16,757 [INFO] __main__: Login successful: student@amep.com
+2026-03-31 22:21:16,758 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:21:16] "POST /auth/login HTTP/1.1" 200 -
+2026-03-31 22:23:32,261 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:23:32] "OPTIONS /auth/login HTTP/1.1" 200 -
+2026-03-31 22:23:32,526 [INFO] __main__: Login attempt: samikshaa.y19@gmail.com as student
+2026-03-31 22:23:32,537 [INFO] __main__: Login successful: samikshaa.y19@gmail.com
+2026-03-31 22:23:32,546 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:23:32] "POST /auth/login HTTP/1.1" 200 -
+2026-03-31 22:24:02,821 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:24:02] "OPTIONS /predict HTTP/1.1" 200 -
+2026-03-31 22:24:03,177 [INFO] __main__: Prediction for user student_2: score=14.2
+2026-03-31 22:24:03,184 [INFO] werkzeug: 127.0.0.1 - - [31/Mar/2026 22:24:03] "POST /predict HTTP/1.1" 200 -

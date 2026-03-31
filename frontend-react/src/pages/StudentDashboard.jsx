@@ -11,6 +11,7 @@ import {
 } from 'chart.js'
 import { predict } from '../services/api'
 import { useAuth } from '../App'
+import StudyBuddy from '../components/StudyBuddy'
 import '../styles/StudentDashboard.css'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
@@ -352,6 +353,9 @@ function StudentDashboard() {
 
         </div>
       )}
+
+      {/* AI Study Buddy — floating chatbot */}
+      <StudyBuddy prediction={result} />
     </div>
   )
 }
