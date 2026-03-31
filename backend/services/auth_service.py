@@ -15,6 +15,20 @@ class AuthService:
         self.users_file = Path(__file__).parent.parent / 'data' / 'users.json'
         self.sessions = {}  # In-memory session storage {token: {user_id, role, expires}}
         self._ensure_users_file()
+        self.seed_demo_users()
+
+    def seed_demo_users(self):
+        """Seed demo accounts if they don't exist yet."""
+        demo_accounts = [
+            ('student@amep.com', 'student123', 'Demo Student', 'student'),
+            ('teacher@amep.com', 'teacher123', 'Demo Teacher', 'teacher'),
+        ]
+        for email, password, name, role in demo_accounts:
+            users_data = self._load_users()
+            users_key = f"{role}s"
+            exists = any(u['email'].lower() == email.lower() for u in users_data.get(users_key, []))
+            if not exists:
+                self.register(email, password, name, role)
     
     def _ensure_users_file(self):
         """Ensure users.json exists with proper structure."""
