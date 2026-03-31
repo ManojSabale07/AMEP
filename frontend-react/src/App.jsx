@@ -48,20 +48,22 @@ function App() {
   useEffect(() => {
     const savedUser = localStorage.getItem('amep_user')
     const savedRole = localStorage.getItem('amep_role')
-    if (savedUser && savedRole) {
+    const savedToken = localStorage.getItem('amep_token')
+    
+    if (savedUser && savedRole && savedToken) {
       setUser(JSON.parse(savedUser))
       setRole(savedRole)
       setIsLoggedIn(true)
     }
   }, [])
 
-  const login = (name, selectedRole) => {
-    const userData = { name, email: `${name.toLowerCase().replace(' ', '.')}@demo.com` }
-    setUser(userData)
-    setRole(selectedRole)
+  const login = (user, token) => {
+    setUser(user)
+    setRole(user.role)
     setIsLoggedIn(true)
-    localStorage.setItem('amep_user', JSON.stringify(userData))
-    localStorage.setItem('amep_role', selectedRole)
+    localStorage.setItem('amep_user', JSON.stringify(user))
+    localStorage.setItem('amep_token', token)
+    localStorage.setItem('amep_role', user.role)
   }
 
   const logout = () => {
@@ -70,6 +72,7 @@ function App() {
     setIsLoggedIn(false)
     localStorage.removeItem('amep_user')
     localStorage.removeItem('amep_role')
+    localStorage.removeItem('amep_token')
   }
 
   const toggleDarkMode = () => {
@@ -84,7 +87,8 @@ function App() {
     login,
     logout,
     darkMode,
-    toggleDarkMode
+    toggleDarkMode,
+    token: localStorage.getItem('amep_token')
   }
 
   return (

@@ -10,7 +10,9 @@ import logging
 
 from services.prediction_service import PredictionService
 from services.student_service import StudentService
+from services.auth_service import AuthService
 from utils.validators import validate_input
+from functools import wraps
 
 # Configure logging
 logging.basicConfig(
@@ -21,11 +23,51 @@ logger = logging.getLogger(__name__)
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={
+    r"/*": {
+        "origins": ["http://localhost:5173", "http://localhost:5174", "http://127.0.0.1:5173"],
+        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"],
+        "expose_headers": ["Content-Type", "Authorization"],
+        "supports_credentials": True
+    }
+})
 
 # Initialize services
 prediction_service = PredictionService()
 student_service = StudentService()
+auth_service = AuthService()
+
+
+# ============== Auth Middleware ==============
+
+def require_auth(allowed_roles=None):
+    """Decorator to require authentication."""
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            token = request.headers.get('Authorization', '').replace('Bearer ', '')
+            
+            if not token:
+                return jsonify({'error': 'No token provided'}), 401
+            
+            validation = auth_service.validate_token(token)
+            
+            if not validation['valid']:
+                return jsonify({'error': validation.get('error', 'Invalid token')}), 401
+            
+            # Check role if specified
+            if allowed_roles:
+                user_role = validation['user']['role']
+                if user_role not in allowed_roles:
+                    return jsonify({'error': 'Insufficient permissions'}), 403
+            
+            # Attach user to request
+            request.current_user = validation['user']
+            
+            return f(*args, **kwargs)
+        return decorated_function
+    return decorator
 
 
 # ============== Health Check ==============
@@ -53,34 +95,115 @@ def health_check():
 
 # ============== Authentication ==============
 
-@app.route('/auth/login', methods=['POST'])
-def login():
-    """Simple login endpoint (no real auth, just role selection)."""
+@app.route('/auth/register', methods=['POST'])
+def register():
+    """Register a new user."""
     try:
         data = request.get_json()
+        
+        if not data:
+            return jsonify({'error': 'No JSON data provided'}), 400
+        
+        email = data.get('email', '').strip()
+        password = data.get('password', '')
+        name = data.get('name', '').strip()
         role = data.get('role', 'student')
-        name = data.get('name', 'User')
+        
+        result = auth_service.register(email, password, name, role)
+        
+        if not result['success']:
+            return jsonify({'error': result['error']}), 400
+        
+        return jsonify(result), 201
+    
+    except Exception as e:
+        logger.error(f"Registration error: {str(e)}")
+        return jsonify({'error': 'Registration failed'}), 500
 
-        if role not in ['student', 'teacher']:
-            return jsonify({'error': 'Invalid role'}), 400
 
-        return jsonify({
-            'success': True,
-            'user': {
-                'name': name,
-                'role': role,
-                'token': f"{role}_{name.lower().replace(' ', '_')}"  # Fake token for demo
-            }
-        })
-
+@app.route('/auth/login', methods=['POST'])
+def login():
+    """Authenticate user and create session."""
+    try:
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({'error': 'No JSON data provided'}), 400
+        
+        email = data.get('email', '').strip()
+        password = data.get('password', '')
+        role = data.get('role', 'student')
+        
+        logger.info(f"Login attempt: email={email}, role={role}")
+        
+        result = auth_service.login(email, password, role)
+        
+        if not result['success']:
+            logger.warning(f"Login failed for {email}: {result.get('error')}")
+            return jsonify({'error': result['error']}), 401
+        
+        logger.info(f"Login successful for {email}")
+        return jsonify(result)
+    
     except Exception as e:
         logger.error(f"Login error: {str(e)}")
         return jsonify({'error': 'Login failed'}), 500
 
 
+@app.route('/auth/logout', methods=['POST'])
+@require_auth()
+def logout():
+    """Logout user and invalidate token."""
+    try:
+        token = request.headers.get('Authorization', '').replace('Bearer ', '')
+        result = auth_service.logout(token)
+        return jsonify(result)
+    
+    except Exception as e:
+        logger.error(f"Logout error: {str(e)}")
+        return jsonify({'error': 'Logout failed'}), 500
+
+
+@app.route('/auth/validate', methods=['GET'])
+def validate():
+    """Validate current session token."""
+    try:
+        token = request.headers.get('Authorization', '').replace('Bearer ', '')
+        
+        if not token:
+            return jsonify({'valid': False, 'error': 'No token provided'}), 401
+        
+        result = auth_service.validate_token(token)
+        
+        if not result['valid']:
+            return jsonify(result), 401
+        
+        return jsonify(result)
+    
+    except Exception as e:
+        logger.error(f"Validation error: {str(e)}")
+        return jsonify({'valid': False, 'error': 'Validation failed'}), 500
+
+
+@app.route('/auth/me', methods=['GET'])
+@require_auth()
+def get_current_user():
+    """Get current user information."""
+    try:
+        return jsonify({
+            'success': True,
+            'user': request.current_user
+        })
+    
+    except Exception as e:
+        logger.error(f"Get current user error: {str(e)}")
+        return jsonify({'error': 'Failed to get user'}), 500
+
+
 # ============== Prediction Endpoints ==============
 
 @app.route('/predict', methods=['POST'])
+@require_auth(['student', 'teacher'])
 def predict():
     """Full prediction with all analytics."""
     try:
@@ -102,6 +225,7 @@ def predict():
 
 
 @app.route('/predict-mastery', methods=['POST'])
+@require_auth(['student', 'teacher'])
 def predict_mastery():
     """Predict mastery status only."""
     try:
@@ -123,6 +247,7 @@ def predict_mastery():
 
 
 @app.route('/predict-performance', methods=['POST'])
+@require_auth(['student', 'teacher'])
 def predict_performance():
     """Predict performance score and mastery."""
     try:
@@ -146,6 +271,7 @@ def predict_performance():
 # ============== Student Management ==============
 
 @app.route('/students', methods=['GET'])
+@require_auth(['teacher'])
 def get_students():
     """Get all students with their predictions."""
     try:
@@ -180,6 +306,7 @@ def get_students():
 
 
 @app.route('/students/<student_id>', methods=['GET'])
+@require_auth(['student', 'teacher'])
 def get_student(student_id):
     """Get a single student with prediction."""
     try:
@@ -209,6 +336,7 @@ def get_student(student_id):
 
 
 @app.route('/add-student', methods=['POST'])
+@require_auth(['teacher'])
 def add_student():
     """Add a new student."""
     try:
@@ -244,6 +372,7 @@ def add_student():
 
 
 @app.route('/students/<student_id>', methods=['PUT'])
+@require_auth(['teacher'])
 def update_student(student_id):
     """Update a student."""
     try:
@@ -278,6 +407,7 @@ def update_student(student_id):
 
 
 @app.route('/students/<student_id>', methods=['DELETE'])
+@require_auth(['teacher'])
 def delete_student(student_id):
     """Delete a student."""
     try:
@@ -293,9 +423,84 @@ def delete_student(student_id):
         return jsonify({'error': 'Internal server error'}), 500
 
 
+@app.route('/student/profile', methods=['GET'])
+@require_auth(['student'])
+def get_student_profile():
+    """Get current student's profile and prediction."""
+    try:
+        student_id = request.current_user['id']
+        
+        student = auth_service.get_user(student_id, 'student')
+        
+        if not student:
+            return jsonify({'error': 'Student not found'}), 404
+        
+        student_data = {
+            'studytime': student.get('studytime', 2),
+            'failures': student.get('failures', 0),
+            'absences': student.get('absences', 0),
+            'G1': student.get('G1', 0),
+            'G2': student.get('G2', 0)
+        }
+        
+        prediction = prediction_service.predict(student_data)
+        
+        return jsonify({
+            'success': True,
+            'student': student,
+            'prediction': prediction
+        })
+    
+    except Exception as e:
+        logger.error(f"Error getting student profile: {str(e)}")
+        return jsonify({'error': 'Internal server error'}), 500
+
+
+@app.route('/student/profile', methods=['PUT'])
+@require_auth(['student'])
+def update_student_profile():
+    """Update current student's profile."""
+    try:
+        student_id = request.current_user['id']
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({'error': 'No JSON data provided'}), 400
+        
+        # Allow updating specific student fields
+        allowed_fields = ['studytime', 'failures', 'absences', 'G1', 'G2', 'name']
+        updates = {k: v for k, v in data.items() if k in allowed_fields}
+        
+        student = auth_service.update_user(student_id, 'student', updates)
+        
+        if not student:
+            return jsonify({'error': 'Student not found'}), 404
+        
+        # Get updated prediction
+        student_data = {
+            'studytime': student.get('studytime', 2),
+            'failures': student.get('failures', 0),
+            'absences': student.get('absences', 0),
+            'G1': student.get('G1', 0),
+            'G2': student.get('G2', 0)
+        }
+        prediction = prediction_service.predict(student_data)
+        
+        return jsonify({
+            'success': True,
+            'student': student,
+            'prediction': prediction
+        })
+    
+    except Exception as e:
+        logger.error(f"Error updating student profile: {str(e)}")
+        return jsonify({'error': 'Internal server error'}), 500
+
+
 # ============== Analytics ==============
 
 @app.route('/class-analytics', methods=['GET'])
+@require_auth(['teacher'])
 def get_class_analytics():
     """Get class-level analytics and insights."""
     try:
